@@ -1,8 +1,12 @@
 plugins {
     id 'java'
+    //boot and dependency-management plugin support functionality to build
     id 'org.springframework.boot' version '2.2.10.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    //support add versioning using tags
     id 'pl.allegro.tech.build.axion-release' version '1.12.1'
+    // support lombok development
+    id "io.freefair.lombok" version "5.2.1"
 }
 
 group = 'com.example'
@@ -11,14 +15,28 @@ sourceCompatibility = '8'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.springframework.plugin:spring-plugin-core:2.0.0.RELEASE'
     implementation "io.springfox:springfox-boot-starter:3.0.0"
     implementation "io.springfox:springfox-swagger-ui:3.0.0"
-    runtimeOnly 'com.h2database:h2'
+    implementation 'com.h2database:h2:1.4.200'
+
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+test {
+    useJUnitPlatform()
+}
+
+project.version = scmVersion.version

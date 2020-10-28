@@ -1,3 +1,4 @@
+[tutorial link](https://tomgregory.com/building-a-spring-boot-application-in-jenkins/)
 [axion plugin release](https://github.com/allegro/axion-release-plugin)
 ```groovy
 plugins {

@@ -1,0 +1,17 @@
+GET http://localhost:8080/ride/4
+Accept: application/json
+
+###
+POST http://localhost:8080/ride
+Content-Type: application/json
+
+{
+  "name":"Monorail",
+  "description":"Sedate ride that takes you around the park.",
+  "thrillFactor":2,
+  "vomitFactor":1
+}
+
+###
+GET http://localhost:8080/ride/
+

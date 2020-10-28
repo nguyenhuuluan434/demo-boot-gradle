@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.config.SwaggerExposeEndpoint;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ public class TestController {
         return productsList;
     }
 
+    @SwaggerExposeEndpoint
     @PostMapping(value = "/products")
     public String createProduct() {
         return "Product is saved successfully";
