@@ -51,7 +51,7 @@ public class ThemeControllerTests {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(newRide)
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
+                .andExpect(status().isAccepted())
                 .andReturn();
     }
 }
